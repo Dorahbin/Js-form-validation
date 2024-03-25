@@ -28,6 +28,7 @@ function revealPassword() {
     img.setAttribute('src', eyeClose);
   }
 
+  //confirm password
   if (confirmPassword.type === 'password') {
     confirmPassword.setAttribute('type', 'text');
     img.setAttribute('src', eyeOpen);
@@ -42,25 +43,30 @@ img.addEventListener('click', revealPassword);
 function validateForm(e) {
   const emailCheck = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
   e.preventDefault();
+  // username
   if (!inputName.value) {
     userError.textContent = 'input a username!';
   } else {
     userError.textContent = '';
   }
 
+  // email
   if (!inputEmail.value.match(emailCheck)) {
     emailError.textContent = 'input a valid email!';
   } else {
     emailError.textContent = '';
   }
 
+  // password
   if (inputPassword.value.length <= 9) {
     passwordError.textContent = 'password must be 8 or more character!';
   } else {
     passwordError.textContent = '';
   }
 
-  if (confirmPassword.value !== inputPassword.value) {
+  //confirm password
+
+  if (inputPassword.value != inputPassword.value) {
     confirmPasswordError.textContent = 'password is not match';
   } else {
     confirmPasswordError.textContent = '';
